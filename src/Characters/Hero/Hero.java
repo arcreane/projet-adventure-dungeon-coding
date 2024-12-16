@@ -10,10 +10,14 @@ import java.util.*;
  */
 public class Hero extends Character {
 
+	String name;
 	/**
 	 * Default constructor
 	 */
 	public Hero() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the name of the character: ");
+		name = sc.nextLine();
 	}
 
 	/**
@@ -21,8 +25,9 @@ public class Hero extends Character {
 	 */
 	public List<Weapon> arsenal;
 
-	public void selectWeapon() {
-		// TODO implement here
+	public int selectWeapon() {
+		System.out.println("Weapon is selected by " + name);
+		return 2;
 	}
 
 	/**
