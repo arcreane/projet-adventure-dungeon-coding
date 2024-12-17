@@ -6,22 +6,14 @@ import Weapons.Weapon;
  * 
  */
 public class Character {
+	public int healthPoints;
+	public Weapon currentWeapon;
 
-	/**
-	 * Default constructor
-	 */
 	public Character() {
 	}
 
-	/**
-	 * 
-	 */
-	public int healthPoints;
 
-	/**
-	 * 
-	 */
-	public Weapon currentWeapon;
+
 
 	/**
 	 * @param character

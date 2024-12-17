@@ -14,6 +14,7 @@ public class Hero extends Character {
 	 * Default constructor
 	 */
 	public Hero() {
+		System.out.println("Je suis le hero de l'aventure");
 	}
 
 	/**
