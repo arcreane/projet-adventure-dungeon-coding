@@ -1,19 +1,16 @@
 package Characters.Monsters;
 
-/**
- * 
- */
-public class Barbarian extends Monster {
+import Weapons.Sword;
+import Weapons.WeaponType;
 
-	/**
-	 * Default constructor
-	 */
-	public Barbarian() {
+public class Barbarian extends Monster  {
+
+
+	public Barbarian(WeaponType weapon) {
+		Weapons.Sword Sword = new Sword();
 	}
 
-	/**
-	 * 
-	 */
+
 	public int criticalChance;
 
 }

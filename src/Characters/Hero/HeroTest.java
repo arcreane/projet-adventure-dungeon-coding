@@ -1,5 +1,6 @@
 package Characters.Hero;
 
+import Weapons.Weapon;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -13,7 +14,7 @@ class HeroTest {
     void selectWeapon() {
         InputStream input = new ByteArrayInputStream("Dugland".getBytes());
         System.setIn(input);
-        Hero hero = new Hero();
+        Hero hero = new Hero(Weapon);
          hero.selectWeapon();
     }
 

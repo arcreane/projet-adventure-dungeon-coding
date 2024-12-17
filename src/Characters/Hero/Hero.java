@@ -1,45 +1,31 @@
 package Characters.Hero;
 
 import Characters.Character;
-import Weapons.Weapon;
+import Weapons.Sword;
+import Weapons.WeaponType;
 
 import java.util.*;
 
-/**
- * 
- */
 public class Hero extends Character {
 
 	String name;
-	/**
-	 * Default constructor
-	 */
-	public Hero() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the name of the character: ");
-		name = sc.nextLine();
+
+	public Hero(WeaponType weapon) {
+		Sword Sword = new Sword();
 	}
 
-	/**
-	 * 
-	 */
-	public List<Weapon> arsenal;
+	/*
+	public List Weapon arsenal;*/
 
 	public int selectWeapon() {
-		System.out.println("Weapon is selected by " + name);
+		System.out.println("Weapon is selected by ");
 		return 2;
 	}
 
-	/**
-	 * 
-	 */
 	public void attack() {
 		// TODO implement here
 	}
 
-	/**
-	 * 
-	 */
 	public void isAlive() {
 		// TODO implement here
 	}
