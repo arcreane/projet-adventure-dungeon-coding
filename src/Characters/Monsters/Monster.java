@@ -17,6 +17,7 @@ public class Monster extends Character {
 
 	public WeaponType weakness;
 
+<<<<<<< HEAD
  public boolean Monster(Magician magician) {
 	 	 if (Hero && Monster) {
 			 if (Magician = True) {
@@ -28,4 +29,21 @@ public class Monster extends Character {
 			}
 	 }
  }
+=======
+    public Monster() {
+		super(100, "monster");
+    }
+
+
+    public static Monster createRandomMonster() {
+		// TODO implement here
+		return null;
+	}
+
+
+	public void attack() {
+		// TODO implement here
+	}
+
+>>>>>>> a18493e7458819fc03195c6c6d6864e5de9aeca2
 }

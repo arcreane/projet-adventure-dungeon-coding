@@ -9,6 +9,7 @@ public class WaterFlask extends Weapon {
 	 * Default constructor
 	 */
 	public WaterFlask() {
+		setWeaponDamage(2);
 	}
 
 	/**

@@ -9,6 +9,7 @@ public class Sword extends Weapon {
 	 * Default constructor
 	 */
 	public Sword() {
+		setWeaponDamage(10);
 	}
 
 	/**
