@@ -5,7 +5,8 @@ import Characters.Monsters.Barbarian;
 import java.util.*;
 
 public class Dungeon {
-    private Room[] rooms;
+	public static int Room;
+	private Room[] rooms;
 
 	public Dungeon(int numberRooms) {
 		// Initialization of rooms with their monster
@@ -20,10 +21,6 @@ public class Dungeon {
 
 	public int currentRoomIndex;
 
-
-	public void death() {
-		// TODO implement here
-	}
 
 	public void endCombat() {
 		// TODO implement here

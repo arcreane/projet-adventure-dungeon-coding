@@ -1,6 +1,7 @@
 package Characters.Monsters;
 
 import Characters.Character;
+import Characters.Hero.Hero;
 import Weapons.Sword;
 import Weapons.WeaponType;
 
@@ -14,18 +15,7 @@ public class Monster extends Character {
 
 	public WeaponType weakness;
 
-    public Monster() {
-    }
-
-
-    public static Monster createRandomMonster() {
-		// TODO implement here
-		return null;
-	}
-
-
-	public void attack() {
-		// TODO implement here
-	}
-
+ public Monster(WeaponType) {
+	 
+ }
 }
