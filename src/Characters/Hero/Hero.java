@@ -9,6 +9,10 @@ import java.util.*;
 
 public class Hero extends Character {
 
+	public Hero(){
+		super(100, "jenna");
+	}
+
 	String name;
 	Weapon currentWeapon;
 

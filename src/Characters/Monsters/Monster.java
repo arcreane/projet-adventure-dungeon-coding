@@ -15,6 +15,7 @@ public class Monster extends Character {
 	public WeaponType weakness;
 
     public Monster() {
+		super(100, "monster");
     }
 
 
