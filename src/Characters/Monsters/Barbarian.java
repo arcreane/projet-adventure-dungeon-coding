@@ -7,7 +7,7 @@ public class Barbarian extends Monster  {
 
 
 	public Barbarian(WeaponType weapon) {
-		Weapons.Sword Sword = new Sword();
+        Weapons.Sword Sword = new Sword();
 	}
 
 
