@@ -3,9 +3,6 @@ package game.Characters;
 import game.Weapons.Weapon;
 
 
-/**
- *
- */
 public abstract class Character {
     public int healthPoints;
     public Weapon currentWeapon;
@@ -31,7 +28,7 @@ public abstract class Character {
         }
     }
 
-    public boolean isDead() {
-        return !alive;
+    public boolean isAlive() {
+        return alive;
     }
 }

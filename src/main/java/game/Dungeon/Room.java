@@ -18,12 +18,10 @@ public class Room {
 	}
 
 
-	/**
-	 * @param hero
-	 */
+
 	public void enterRoom(Hero hero) {
 		hero.findWeaknessInMonster(monster);
-		while (monster.isDead() && hero.isDead()){
+		while (monster.isAlive() && hero.isAlive()){
 			System.out.println("A " + monster.getClass().getName() + " attacks you.");
 			monster.attack(hero);
 

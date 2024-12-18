@@ -1,10 +1,9 @@
 package game.Weapons;
 
-/**
- * 
- */
+
 public enum WeaponType {
 	SWORD,
 	WATER_FLASK,
-	LIGHTNING
+	LIGHTNING,
+	AXE
 }

@@ -8,13 +8,13 @@ import game.Weapons.WaterFlask;
 import game.Weapons.Weapon;
 import game.Weapons.WeaponType;
 import lombok.experimental.FieldNameConstants;
-import lombok.AccessLevel;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.*;
+
 @FieldNameConstants()
-public class Hero extends Character  {
+public class Hero extends Character {
     Weapon currentWeapon;
     HashMap<WeaponType, Weapon> arsenal;
     String m_sName;
@@ -22,28 +22,26 @@ public class Hero extends Character  {
     Boolean isAlive;
 
     PropertyChangeSupport m_PCS = new PropertyChangeSupport(this);
+
     public Hero(String p_sName) {
-        super(100);
-        m_sName = p_sName;
-
+        this(100, p_sName);
     }
-
 
     public Hero(int initialhealthPoints, String p_sName) {
         super(initialhealthPoints);
+        m_sName = p_sName;
         arsenal = new HashMap<WeaponType, Weapon>() {
             {
                 put(WeaponType.WATER_FLASK, new WaterFlask());
                 put(WeaponType.SWORD, new Sword());
             }
         };
-
     }
 
-    public void subscribe(String p_sPropertyName, PropertyChangeListener  p_PCL)
-    {
-     m_PCS.addPropertyChangeListener(p_sPropertyName, p_PCL);
+    public void subscribe(String p_sPropertyName, PropertyChangeListener p_PCL) {
+        m_PCS.addPropertyChangeListener(p_sPropertyName, p_PCL);
     }
+
     public void attack() {
         boolean validWeapon = false;
         String weaponName = currentWeapon.getClass().getName();
@@ -59,14 +57,13 @@ public class Hero extends Character  {
     }
 
     public void findWeaknessInMonster(Monster monster) {
-        //currentWeapon = arsenal.get(monster.weakness);
+        currentWeapon = arsenal.get(monster.weakness);
     }
 
     @Override
     public void takeDamage(int amount) {
         super.takeDamage(amount);
-        if(isDead())
-        {
+        if (isAlive()) {
             String test = Hero.Fields.isAlive.toString();
             m_PCS.firePropertyChange(test, true, false);
         }

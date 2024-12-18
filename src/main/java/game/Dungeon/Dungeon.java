@@ -42,8 +42,8 @@ public class Dungeon implements PropertyChangeListener {
 		for(int i = 0 ; i < rooms.length ; i ++){
 			System.out.println("You are in the room n°" + (i + 1));
 			rooms[i].enterRoom(hero);
-			if(!hero.isDead())
-				System.out.println("Too baad you're dead");
+			if(!hero.isAlive())
+				System.out.println("Too bad you're dead");
 
 
 		}

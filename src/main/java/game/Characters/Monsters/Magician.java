@@ -2,7 +2,9 @@ package game.Characters.Monsters;
 
 
 import game.Characters.Character;
+import game.Weapons.Lightning;
 import game.Weapons.WaterFlask;
+import game.Weapons.WeaponType;
 
 public class Magician extends Monster {
 
@@ -10,7 +12,8 @@ public class Magician extends Monster {
 
 	public Magician() {
 		super(10);
-		WaterFlask Waterflask = new WaterFlask();
+		currentWeapon = new Lightning();
+		weakness = WeaponType.WATER_FLASK;
 	}
 
 

@@ -1,6 +1,7 @@
 package game.Characters.Monsters;
 
-import game.Weapons.Sword;
+import game.Weapons.Axe;
+import game.Weapons.WeaponType;
 
 public class Barbarian extends Monster  {
 	static final private int  MAX_LIFE = 10;
@@ -8,7 +9,8 @@ public class Barbarian extends Monster  {
 
 	public Barbarian() {
 		super(MAX_LIFE);
-        game.Weapons.Sword Sword = new Sword();
+        currentWeapon = new Axe();
+		weakness = WeaponType.SWORD;
 	}
 
 	@Override
