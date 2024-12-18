@@ -1,4 +1,4 @@
-package Weapons;
+package game.Weapons;
 
 /**
  * 

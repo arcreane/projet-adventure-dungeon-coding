@@ -1,16 +1,15 @@
-package Characters.Monsters;
+package game.Characters.Monsters;
 
 
-import Characters.Character;
-import Weapons.WaterFlask;
-import Weapons.Weapon;
-import Weapons.WeaponType;
+import game.Characters.Character;
+import game.Weapons.WaterFlask;
 
 public class Magician extends Monster {
 
 	public int paralysisChance = 0;
 
 	public Magician() {
+		super(10);
 		WaterFlask Waterflask = new WaterFlask();
 	}
 
@@ -28,6 +27,11 @@ public class Magician extends Monster {
 
 		}
 
+
+	}
+
+	@Override
+	protected void applyEffect() {
 
 	}
 }

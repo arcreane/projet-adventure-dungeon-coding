@@ -1,4 +1,4 @@
-package Characters.Monsters;
+package game.Characters.Monsters;
 
 import java.util.Random;
 
