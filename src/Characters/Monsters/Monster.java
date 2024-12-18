@@ -1,6 +1,6 @@
 package Characters.Monsters;
 
-import Characters.Character;
+import  Characters.Character;
 import Weapons.WeaponType;
 
 /**
