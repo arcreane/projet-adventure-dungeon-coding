@@ -30,4 +30,8 @@ public abstract class Monster extends Character {
 	}
 
 	protected abstract void applyEffect();
+
+	protected String getHealth() {
+        return "";
+    }
 }

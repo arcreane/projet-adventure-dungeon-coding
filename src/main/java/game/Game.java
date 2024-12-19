@@ -17,7 +17,13 @@ public class Game implements PropertyChangeListener {
     }
 
     private void startGame() {
-        System.out.println("Select difficulty : \n\t- type 1 for easy (5 rooms)\n\t- type 2 for medium (10 rooms)\n\t- type 3 for hard (15 rooms)");
+//        System.out.println("Select difficulty : \n\t- type 1 for easy (5 rooms)\n\t- type 2 for medium (10 rooms)\n\t- type 3 for hard (15 rooms)");
+//        String answer = sc.nextLine().toLowerCase();
+//        switch (answer) {
+//            case "1": 5 rooms; break;
+//            case "2": 10 rooms; break;
+//            case "3": 15 rooms; break;
+//            default: System.out.println("Invalid input");
         //get the user input and make a switch in a while so that you have
         //a coherent answer
         // game.Dungeon initialization (parameters number of rooms)
@@ -26,7 +32,7 @@ public class Game implements PropertyChangeListener {
         Hero hero = new Hero("Jenna the Warrior");
         hero.subscribe("isAlive", this);
         hero.subscribe("isAlive", dungeon);
-        System.out.println("Welcome to the game.Dungeon !");
+        System.out.println("Welcome to the Dungeon !");
         System.out.println("Are you ready to DIE ?");
 
         dungeon.letEnter(hero);

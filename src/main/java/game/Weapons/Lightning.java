@@ -1,13 +1,9 @@
 package game.Weapons;
 
-/**
- * 
- */
-public class Lightning extends Weapon {
+import lombok.Data;
 
-	/**
-	 * Default constructor
-	 */
+@Data
+public class Lightning extends Weapon {
 	public Lightning() {
 		setWeaponDamage(5);
 	}

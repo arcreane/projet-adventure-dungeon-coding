@@ -18,14 +18,11 @@ public class Hero extends Character {
     Weapon currentWeapon;
     HashMap<WeaponType, Weapon> arsenal;
     String m_sName;
-
     Boolean isAlive;
-
-
     PropertyChangeSupport m_PCS = new PropertyChangeSupport(this);
 
     public Hero(String p_sName) {
-        this(50, p_sName);
+        this(100, p_sName);
     }
 
     public Hero(int initialhealthPoints, String p_sName) {
@@ -42,20 +39,23 @@ public class Hero extends Character {
     public void subscribe(String p_sPropertyName, PropertyChangeListener p_PCL) {
         m_PCS.addPropertyChangeListener(p_sPropertyName, p_PCL);
     }
+
     @Override
     public void attack(Character target) {
-
+        Monster monster = (Monster) target;
         String weaponName = currentWeapon.getClass().getSimpleName();
         System.out.println("Type " + weaponName + " to hit the monster");
         String weapon = Game.sc.nextLine();
-        if (weapon.equals(weaponName)) {
-            System.out.println("You hit the monster");
-            takeDamage(10);
-
+        if (weapon.equalsIgnoreCase(weaponName)) {
+            int damage = currentWeapon.getWeaponDamage();
+            monster.takeDamage(damage); // Inflige les dégâts au monstre
+            System.out.println("You hit the monster with " + weaponName + " for " + damage + " damage!");
+            if (!monster.isAlive()) {
+                System.out.println("The monster has been defeated!");
+            }
         } else {
-            System.out.println("Sorry, wrong typing you missed");
+            System.out.println("Sorry, wrong typing. You missed!");
         }
-
     }
 
     public void findWeaknessInMonster(Monster monster) {
@@ -70,17 +70,4 @@ public class Hero extends Character {
             m_PCS.firePropertyChange(test, true, false);
         }
     }
-
-
-
-
-    /*
-	public void attack() {
-		// TODO implement here
-	}
-
-	public void isAlive() {
-		// TODO implement here
-	}
-*/
 }

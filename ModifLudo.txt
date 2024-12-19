@@ -1,0 +1,19 @@
+J'ai modifié 
+Classe Dungeon
+Ligne 52, le texte s'affiché à chaque action "sout..."
+Je l'ai supprimé pour éviter l'affichage cependant si je supprime toute la ligne le jeu plante. (Aucune idée du pq)
+rajouté "final" ligne 10 sur le private Room[] rooms;
+
+Classe Game
+Ligne 20
+J'ai mis en commentaire toutes la partie de code qui choisi les nbr de rooms.
+Si on souhaite le gardé j'ai rajouté un switch, mais il faut modifié du coup la génération des rooms en fonction de la réponse 1,2 ou 3.
+
+Classe Character
+L'IDE ma conseillé de passé en @Getter le public int healhPoints et le private boolean alive = true,
+j'ai mis en commentaire la ligne 11, qui n'est pas utilisé.
+
+Classe Barbarian
+J'ai rajouté le critx2 avec 30% de chance
+
+
