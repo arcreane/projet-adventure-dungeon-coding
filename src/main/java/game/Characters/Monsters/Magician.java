@@ -26,7 +26,9 @@ public class Magician extends Monster {
 		// Attaque normale avec l'éclair
 		int damage = currentWeapon.getWeaponDamage();
 		target.takeDamage(damage);
-		System.out.println("Le magicien lance un éclair qui inflige " + damage + " dégâts !");
+		System.out.println("Magician cast lightnings bolt " + damage + " damages !");
+		System.out.println("Magician status:");
+		this.displayHealthStatus(target);
 
 		// Tentative de paralysie uniquement si la cible est un héros
 
