@@ -52,9 +52,9 @@ public class Game implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        if (Hero.Fields.isAlive.equals(evt.getPropertyName())) {
+        if (!Hero.Fields.isAlive.equals(evt.getPropertyName())) {
             gameOver();
         }
-        System.out.println("Game : " + evt);
+
     }
 }

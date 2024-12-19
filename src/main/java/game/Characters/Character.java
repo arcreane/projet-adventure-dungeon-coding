@@ -7,6 +7,7 @@ public abstract class Character {
     public int healthPoints;
     public Weapon currentWeapon;
 
+
     private String name;
     private boolean alive = true;
 
@@ -19,6 +20,7 @@ public abstract class Character {
 
     public void attack(Character target) {
         target.takeDamage(currentWeapon.getWeaponDamage());
+        System.out.println(target.getClass().getSimpleName() + healthPoints);
     }
 
     public void takeDamage(int amount) {
@@ -26,6 +28,8 @@ public abstract class Character {
         if (this.healthPoints < 1) {
             alive = false;
         }
+    }
+    public void setParalyzed(boolean b) {
     }
 
     public boolean isAlive() {

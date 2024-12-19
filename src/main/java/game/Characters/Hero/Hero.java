@@ -21,10 +21,11 @@ public class Hero extends Character {
 
     Boolean isAlive;
 
+
     PropertyChangeSupport m_PCS = new PropertyChangeSupport(this);
 
     public Hero(String p_sName) {
-        this(100, p_sName);
+        this(50, p_sName);
     }
 
     public Hero(int initialhealthPoints, String p_sName) {
@@ -41,14 +42,15 @@ public class Hero extends Character {
     public void subscribe(String p_sPropertyName, PropertyChangeListener p_PCL) {
         m_PCS.addPropertyChangeListener(p_sPropertyName, p_PCL);
     }
+    @Override
+    public void attack(Character target) {
 
-    public void attack() {
-        boolean validWeapon = false;
-        String weaponName = currentWeapon.getClass().getName();
+        String weaponName = currentWeapon.getClass().getSimpleName();
         System.out.println("Type " + weaponName + " to hit the monster");
         String weapon = Game.sc.nextLine();
         if (weapon.equals(weaponName)) {
             System.out.println("You hit the monster");
+            takeDamage(10);
 
         } else {
             System.out.println("Sorry, wrong typing you missed");
@@ -68,6 +70,8 @@ public class Hero extends Character {
             m_PCS.firePropertyChange(test, true, false);
         }
     }
+
+
 
 
     /*
