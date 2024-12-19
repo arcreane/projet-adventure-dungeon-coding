@@ -27,6 +27,7 @@ public class Magician extends Monster {
 		int damage = currentWeapon.getWeaponDamage();
 		target.takeDamage(damage);
 		System.out.println("Magician cast lightnings bolt " + damage + " damages !");
+		System.out.println("le magician a " + (healthPoints - damage) + "points");
 		System.out.println("Magician status:");
 		this.displayHealthStatus(target);
 

@@ -30,6 +30,7 @@ public abstract class Character {
     public void takeDamage(int amount) {
         this.healthPoints -= amount;
         System.out.println("Le personnage a perdu " + amount + " points de vie.");
+        System.out.println("health = " + healthPoints);
         if (this.healthPoints < 1) {
             alive = false;
         }
