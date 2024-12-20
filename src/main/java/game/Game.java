@@ -2,7 +2,6 @@ package game;
 
 import game.Characters.Hero.Hero;
 import game.Dungeon.Dungeon;
-
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.Scanner;

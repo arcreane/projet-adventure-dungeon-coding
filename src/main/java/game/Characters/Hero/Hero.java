@@ -8,7 +8,6 @@ import game.Weapons.WaterFlask;
 import game.Weapons.Weapon;
 import game.Weapons.WeaponType;
 import lombok.experimental.FieldNameConstants;
-
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.*;
@@ -22,7 +21,7 @@ public class Hero extends Character {
     private PropertyChangeSupport m_PCS = new PropertyChangeSupport(this);
 
     public Hero(String p_sName) {
-        this(100, p_sName);
+        this(1000, p_sName);
     }
 
     public Hero(int initialhealthPoints, String p_sName) {

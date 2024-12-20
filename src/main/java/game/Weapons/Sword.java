@@ -8,7 +8,7 @@ public class Sword extends Weapon {
 	public int headHitChance;
 	public boolean tryHeadHit;
 	public Sword() {
-		weaponDamage = 10;
+		weaponDamage = 100;
 	}
 
 }

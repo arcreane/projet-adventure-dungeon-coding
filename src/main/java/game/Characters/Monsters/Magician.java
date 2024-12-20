@@ -28,24 +28,11 @@ public class Magician extends Monster {
 		//this.displayHealthStatus(target);
 
 		// Tentative de paralysie uniquement si la cible est un héros
-
 		if (target instanceof Hero && random.nextDouble() < PARALYSIS_CHANCE) {
 			target.setParalyzed(true);
 			System.out.println("The hero is paralyzed for the next turn!");
 		}
 	}
-	/*@Override
-	public void attack(Character target) {
-
-		if (isCriticalHit()) {
-			target.takeDamage(currentWeapon.getWeaponDamage() * 2);
-			System.out.println("Critical hit!");
-		} else {
-			target.takeDamage(10);
-			System.out.println("Normal hit.");
-
-		}
-*/
 	@Override
 	protected void applyEffect() {
 	}
