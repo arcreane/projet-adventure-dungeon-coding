@@ -23,12 +23,13 @@ public abstract class Character {
 
     public void takeDamage(int amount) {
         this.healthPoints -= amount;
-        System.out.println( this.getClass().getSimpleName()  +" loses " + amount + " HP.");
-        System.out.println(this.getClass().getSimpleName()  +" have " + healthPoints + " HP.");
+        System.out.println("\u001B[31m" + this.getClass().getSimpleName() + " loses " + amount + " HP." + "\u001B[0m");
+        System.out.println(this.getClass().getSimpleName() + " has " + healthPoints + " HP.");
+
         if (this.healthPoints < 1) {
             alive = false;
         }
-}
+    }
 
     public void setParalyzed(boolean b) {
         return ;
