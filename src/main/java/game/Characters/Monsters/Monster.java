@@ -7,9 +7,7 @@ import java.util.Random;
 
 public abstract class Monster extends Character {
 	protected Random random = new Random();
-
 	public WeaponType weakness;
-
 	public Monster(int p_iMaxPossibleHealth) {
 		super( p_iMaxPossibleHealth);
 	}

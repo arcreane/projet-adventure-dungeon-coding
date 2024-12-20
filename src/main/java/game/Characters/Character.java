@@ -15,7 +15,7 @@ public abstract class Character {
         this.healthPoints = initialhealthPoints;
     }
 
-    // Fonction pour déterminer si un coup est critique
+    // Check CC or not
     public void attack(Character target) {
         target.takeDamage(currentWeapon.getWeaponDamage());
         System.out.println(target.getClass().getSimpleName() + healthPoints);

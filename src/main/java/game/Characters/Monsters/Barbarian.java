@@ -6,10 +6,10 @@ import game.Weapons.WeaponType;
 import java.util.Random;
 
 public class Barbarian extends Monster {
-    static final private int MAX_LIFE = 40; // Vie maximale du barbare
+    static final private int MAX_LIFE = 40;
     private static final double CRITICAL_HIT_CHANCE = 0.30; // 30% chance
     private final Random random = new Random();
-    private boolean isParalyzed = false; // État de paralysie du barbare
+    private boolean isParalyzed = false; // Paralyze statu
 
     public Barbarian() {
         super(MAX_LIFE);
@@ -19,29 +19,27 @@ public class Barbarian extends Monster {
 
     @Override
     public void attack(Character target) {
-        // Vérifier si le barbare est paralysé
+        // Statu paralyz barb
         if (isParalyzed) {
-            isParalyzed = false; // La paralysie disparaît après un tour
+            isParalyzed = false; // Para for 1 turn
             return;
         }
 
         int damage = currentWeapon.getWeaponDamage();
 
-        // Vérifier si un coup critique se produit
+        // Check CC is true
         if (random.nextDouble() < CRITICAL_HIT_CHANCE) {
-            damage *= 2; // Coup critique, double des dégâts
+            damage *= 2;
             System.out.println("Critical hit! Barbarian deals " + damage + " damage!");
         } else {
             System.out.println("Barbarian deals " + damage + " damage!");
         }
-
-        target.takeDamage(damage); // Inflige les dégâts à la cible
+        target.takeDamage(damage);
     }
 
     @Override
     public void takeDamage(int damage) {
-        super.takeDamage(damage); // Appelle la méthode parente pour réduire les points de vie
-        //System.out.println("Barbarian takes " + damage + " damage! Remaining health: " + this.getHealth());
+        super.takeDamage(damage); // Calls the parent method to reduce health
     }
 
     public void setParalyzed(boolean paralyzed) {
