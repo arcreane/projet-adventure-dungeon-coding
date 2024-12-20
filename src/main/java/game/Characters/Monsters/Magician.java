@@ -8,8 +8,6 @@ import java.util.Random;
 import game.Characters.Hero.*;
 
 public class Magician extends Monster {
-	private int flaskCount;
-	private int flaskDmgBonus;
 	private static final double PARALYSIS_CHANCE = 0.10; // 10% chance
 	private final Random random = new Random();
 	//public int paralysisChance = 0;
@@ -18,14 +16,6 @@ public class Magician extends Monster {
 		super(40); // Points de vie du magicien
 		this.currentWeapon = new Lightning(); // Arme éclair
 		weakness = WeaponType.WATER_FLASK;
-		this.flaskCount = 0;
-		this.flaskDmgBonus = 0;
-	}
-
-	public void flaskThrow(Hero damage) {
-		this.flaskDmgBonus = this.flaskCount * 2;
-		this.flaskCount++;
-		System.out.println("Flask Throw ! Bonus damage " + this.flaskDmgBonus + " points.");
 	}
 
 	@Override

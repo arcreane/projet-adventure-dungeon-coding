@@ -13,9 +13,11 @@ public class Dungeon implements PropertyChangeListener {
         rooms = new Room[numberRooms];
 		for(int i = 0; i < numberRooms; i++){
 			rooms[i] = new Room();
+			System.out.println("Room " + i + " created");
 		}
 	}
 	public List<Room> room;
+
 
     public void letEnter(Hero hero) {
 		//System.out.println("-- game.Dungeon Monster --\n");
