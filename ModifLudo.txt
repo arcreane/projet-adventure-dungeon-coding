@@ -15,5 +15,9 @@ j'ai mis en commentaire la ligne 11, qui n'est pas utilisé.
 
 Classe Barbarian
 J'ai rajouté le critx2 avec 30% de chance
+j'ai tenté d'ajoute le fait que ses degats soient pris en compte, j'ai laissé le code de base en dessous //
 
+Classe Hero
+J'ai passé les pv à 100 du hero.
+J'ai rajouté l'indication des pv restants du Hero à chaque attaque, aisni qu'au départ de la partie le nbr de pv que le héro possede (je n'ai pas réussi à recupéré la variable qui défini les pv du hero)
 

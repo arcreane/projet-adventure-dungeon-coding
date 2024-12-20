@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class WaterFlask extends Weapon {
 	public WaterFlask() {
-		setWeaponDamage(2);
+		setWeaponDamage(20);
 	}
 	public int baseAttackPoints;
 	public int bonusPerUse;

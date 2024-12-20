@@ -29,11 +29,12 @@ public class Dungeon implements PropertyChangeListener {
     public void letEnter(Hero hero) {
 		//System.out.println("-- game.Dungeon Monster --\n");
 		for(int i = 0 ; i < rooms.length ; i ++){
-			System.out.println("You are in the room " + (i + 1) + " with 100 HP.");
+			System.out.println("You are in the room " + (i + 1) + " with "+ hero.getHealthPoints()+ " health points");
 			rooms[i].enterRoom(hero);
-			if(!hero.isAlive())
+			if(!hero.isAlive()) {
 				System.out.println("Too bad you're dead");
-			  break;
+				break;
+			}
 		}
     }
 

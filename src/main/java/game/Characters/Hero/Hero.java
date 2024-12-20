@@ -15,11 +15,11 @@ import java.util.*;
 
 @FieldNameConstants()
 public class Hero extends Character {
-    Weapon currentWeapon;
-    HashMap<WeaponType, Weapon> arsenal;
-    String m_sName;
-    Boolean isAlive;
-    PropertyChangeSupport m_PCS = new PropertyChangeSupport(this);
+    private Weapon currentWeapon;
+    private HashMap<WeaponType, Weapon> arsenal;
+    private String m_sName;
+    private Boolean isAlive;
+    private PropertyChangeSupport m_PCS = new PropertyChangeSupport(this);
 
     public Hero(String p_sName) {
         this(100, p_sName);

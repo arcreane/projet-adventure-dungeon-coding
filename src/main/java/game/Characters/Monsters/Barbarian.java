@@ -33,7 +33,7 @@ public class Barbarian extends Monster {
     @Override
     public void takeDamage(int damage) {
         super.takeDamage(damage); // Appelle la méthode parente pour réduire les points de vie
-        System.out.println("Barbarian takes " + damage + " damage! Remaining health: " + this.getHealth());
+        //System.out.println("Barbarian takes " + damage + " damage! Remaining health: " + this.getHealth());
     }
 
     @Override

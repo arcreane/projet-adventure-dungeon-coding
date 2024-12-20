@@ -6,12 +6,12 @@ import lombok.Getter;
 
 public abstract class Character {
     @Getter
-    public int healthPoints;
-    public Weapon currentWeapon;
+    protected int healthPoints;
+    protected Weapon currentWeapon;
     //protected int currentHealth;
-    private String name;
+    protected String name;
     @Getter
-    private boolean alive = true;
+    protected boolean alive = true;
 
     public Character(int initialhealthPoints) {
         this.healthPoints = initialhealthPoints;
@@ -25,19 +25,19 @@ public abstract class Character {
 
     public void takeDamage(int amount) {
         this.healthPoints -= amount;
-        System.out.println("You loose " + amount + " HP.");
-        System.out.println("Hero have " + healthPoints + " HP.");
+        System.out.println( this.getClass().getSimpleName()  +" loses " + amount + " HP.");
+        System.out.println(this.getClass().getSimpleName()  +" have " + healthPoints + " HP.");
         if (this.healthPoints < 1) {
             alive = false;
         }
-    }
-
-    protected void displayHealthStatus(Character target){
-        //System.out.println("remaining life points :" + getHealthPoints());
-        target.takeDamage(currentWeapon.getWeaponDamage());
-        System.out.println(target.getClass().getSimpleName() + " a " + target.getHealthPoints() + " points de vie restants.");
-        target.displayHealthStatus(target);
-    }
+}
+//
+//    protected void displayHealthStatus(Character target){
+//        //System.out.println("remaining life points :" + getHealthPoints());
+//        target.takeDamage(currentWeapon.getWeaponDamage());
+//        System.out.println(target.getClass().getSimpleName() + " a " + target.getHealthPoints() + " points de vie restants.");
+//        target.displayHealthStatus(target);
+//    }
     public void setParalyzed(boolean b) {
     }
 
