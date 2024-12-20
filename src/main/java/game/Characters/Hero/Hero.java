@@ -49,26 +49,30 @@ public class Hero extends Character {
     @Override
     public void attack(Character target) {
         if (isParalyzed) {
-            //System.out.println(m_sName + " is paralyzed and cannot attack this turn!");
             isParalyzed = false; // Paralysis wears off after one turn
             return;
         }
+
         Monster monster = (Monster) target;
         String weaponName = currentWeapon.getClass().getSimpleName();
-        System.out.println("Type " + weaponName + " to hit the monster");
+
+        // Display the prompt with only the weapon name in yellow
+        System.out.println("Type " + "\u001B[33m" + weaponName + "\u001B[0m" + " to hit the monster");
+
         String weapon = Game.sc.nextLine();
         if (weapon.equalsIgnoreCase(weaponName)) {
             int damage = currentWeapon.getWeaponDamage();
+
             // Check if the target is a Barbarian and if the critical hit chance applies
             if (monster instanceof Barbarian && random.nextDouble() < CRITICAL_HIT_CHANCE) {
                 ((Barbarian) monster).setParalyzed(true); // Apply paralysis to the Barbarian
             } else if (weapon.equalsIgnoreCase("WaterFlask") && target instanceof Magician) {
-                // Si l'arme lancée est une flasque et la cible est un Magician
+                // If the weapon is a Water Flask and the target is a Magician
                 Magician magician = (Magician) target;
-                magician.receiveWaterFlask(); // Le magicien reçoit la flasque d'eau
+                magician.receiveWaterFlask(); // The magician receives the water flask
             }
+
             monster.takeDamage(damage);
-            //System.out.println("You hit the monster with " + weaponName + " for " + damage + " damage!");
             if (!monster.isAlive()) {
                 System.out.println("The monster has been defeated!");
             }
