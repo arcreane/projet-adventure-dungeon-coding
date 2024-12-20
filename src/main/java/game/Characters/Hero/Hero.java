@@ -26,7 +26,7 @@ public class Hero extends Character {
     private PropertyChangeSupport m_PCS = new PropertyChangeSupport(this);
 
     public Hero(String p_sName) {
-        this(100, p_sName);
+        this(200, p_sName);
     }
 
     public Hero(int initialHealthPoints, String p_sName) {
