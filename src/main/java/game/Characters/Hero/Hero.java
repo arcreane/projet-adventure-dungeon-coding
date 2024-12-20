@@ -10,6 +10,7 @@ import game.Weapons.WaterFlask;
 import game.Weapons.Weapon;
 import game.Weapons.WeaponType;
 import lombok.experimental.FieldNameConstants;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.HashMap;
@@ -45,6 +46,11 @@ public class Hero extends Character {
         m_PCS.addPropertyChangeListener(p_sPropertyName, p_PCL);
     }
 
+    public static double getCriticalHitChance() {
+        return CRITICAL_HIT_CHANCE;
+    }
+
+
     @Override
     public void attack(Character target) {
         if (isParalyzed) {
@@ -61,16 +67,7 @@ public class Hero extends Character {
         String weapon = Game.sc.nextLine();
         if (weapon.equalsIgnoreCase(weaponName)) {
             int damage = currentWeapon.getWeaponDamage();
-
-            // Check if the target is a Barbarian and if the critical hit chance applies
-            if (monster instanceof Barbarian && random.nextDouble() < CRITICAL_HIT_CHANCE) {
-                ((Barbarian) monster).setParalyzed(true); // Apply paralysis to the Barbarian
-            } else if (weapon.equalsIgnoreCase("WaterFlask") && target instanceof Magician) {
-                // If the weapon is a Water Flask and the target is a Magician
-                Magician magician = (Magician) target;
-                magician.receiveWaterFlask(); // The magician receives the water flask
-            }
-
+            monster.applyEffect();
             monster.takeDamage(damage);
             if (!monster.isAlive()) {
                 System.out.println("The monster has been defeated!");
@@ -100,3 +97,11 @@ public class Hero extends Character {
         }
     }
 }
+
+//            // Check if the target is a Barbarian and if the critical hit chance applies
+//             // Apply paralysis to the Barbarian
+//            } else if (weapon.equalsIgnoreCase("WaterFlask") && target instanceof Magician) {
+//                // If the weapon is a Water Flask and the target is a Magician
+//                Magician magician = (Magician) target;
+//                receiveWaterFlask(); // The magician receives the water flask
+//            }

@@ -50,4 +50,8 @@ public class Magician extends Monster {
 			System.out.println("The hero is paralyzed for the next turn!");
 		}
 	}
+	@Override
+	public void applyEffect() {
+		receiveWaterFlask();
+	}
 }

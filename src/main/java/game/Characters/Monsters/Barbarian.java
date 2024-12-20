@@ -1,6 +1,7 @@
 package game.Characters.Monsters;
 
 import game.Characters.Character;
+import game.Characters.Hero.Hero;
 import game.Weapons.Axe;
 import game.Weapons.WeaponType;
 import java.util.Random;
@@ -52,8 +53,14 @@ public class Barbarian extends Monster {
     public boolean isParalyzed() {
         return isParalyzed;
     }
-}
 
+    @Override
+    public void applyEffect() {
+        if (random.nextDouble() < Hero.getCriticalHitChance()) {
+             setParalyzed(true);
+        }
+    }
+}
 
 
 
