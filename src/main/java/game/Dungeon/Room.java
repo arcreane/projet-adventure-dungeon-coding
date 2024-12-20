@@ -20,13 +20,7 @@ public class Room {
 		while (monster.isAlive() && hero.isAlive()){
 			System.out.println("A " + monster.getClass().getSimpleName() + " attacks you.");
 			monster.attack(hero);
-
-//			if(hero.isKo()){
-//				System.out.println("You are knocked out you pass your turn");
-//				hero.setKo(false);
-//			}else{
 				hero.attack(monster);
-//			}
 		}
 	}
 }

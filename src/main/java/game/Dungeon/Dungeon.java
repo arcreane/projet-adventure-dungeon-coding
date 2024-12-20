@@ -4,6 +4,7 @@ import game.Characters.Hero.Hero;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.*;
+import game.Game;
 
 public class Dungeon implements PropertyChangeListener {
     private final Room[] rooms;
@@ -24,6 +25,7 @@ public class Dungeon implements PropertyChangeListener {
 			rooms[i].enterRoom(hero);
 			if(!hero.isAlive()) {
 				System.out.println("Too bad you're dead");
+				Game.gameOver();
 				break;
 			}
 		}

@@ -1,49 +1,53 @@
 package game.Characters.Monsters;
 
-
 import game.Characters.Character;
+import game.Characters.Hero.Hero;
 import game.Weapons.Lightning;
 import game.Weapons.WeaponType;
 import java.util.Random;
-import game.Characters.Hero.*;
 
 public class Magician extends Monster {
-	private int flaskCount;
-	private int flaskDmgBonus;
 	private static final double PARALYSIS_CHANCE = 0.10; // 10% chance
 	private final Random random = new Random();
-	//public int paralysisChance = 0;
+	private int waterFlaskCount; // Flask number hit
+	private int additionalDamage; // Increase Damage
 
 	public Magician() {
-		super(40); // Points de vie du magicien
-		this.currentWeapon = new Lightning(); // Arme éclair
-		weakness = WeaponType.WATER_FLASK;
-		this.flaskCount = 0;
-		this.flaskDmgBonus = 0;
+		super(40);
+		this.currentWeapon = new Lightning();
+		weakness = WeaponType.WATER_FLASK; // Weapon for Hero
+		this.waterFlaskCount = 0;
+		this.additionalDamage = 0;
 	}
 
-	public void flaskThrow(Hero damage) {
-		this.flaskDmgBonus = this.flaskCount * 2;
-		this.flaskCount++;
-		System.out.println("Flask Throw ! Bonus damage " + this.flaskDmgBonus + " points.");
+	@Override
+	public void takeDamage(int damage) {
+		// Stack FlaskDamage
+		int totalDamage = damage + additionalDamage;
+		super.takeDamage(totalDamage);
+		System.out.println("Magician takes " + totalDamage + " damage! (Base damage: " + damage +
+				", Additional damage from water flasks: " + additionalDamage + ")");
+	}
+
+	public void receiveWaterFlask() { //Count WaterFlask
+		waterFlaskCount++;
+		if (waterFlaskCount > 5) {
+			waterFlaskCount = 0;
+		}
+		additionalDamage = waterFlaskCount * 2; // Each WaterFlask up damage per 2
+		System.out.println("Magician receives a water flask! Total flasks: " + waterFlaskCount +
+				", Additional damage now increased by " + additionalDamage);
 	}
 
 	@Override
 	public void attack(Character target) {
-		// Attaque normale avec l'éclair
 		int damage = currentWeapon.getWeaponDamage();
-		System.out.println("Magician cast lightnings bolt " + damage + " damages !");
+		System.out.println("Magician casts a lightning bolt dealing " + damage + " damage!");
 		target.takeDamage(damage);
-		//System.out.println("Magician status:" +(healthPoints));
-		//this.displayHealthStatus(target);
-
-		// Tentative de paralysie uniquement si la cible est un héros
+		// Paralysis attempt only if target is a hero
 		if (target instanceof Hero && random.nextDouble() < PARALYSIS_CHANCE) {
 			target.setParalyzed(true);
 			System.out.println("The hero is paralyzed for the next turn!");
 		}
-	}
-	@Override
-	protected void applyEffect() {
 	}
 }

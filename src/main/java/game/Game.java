@@ -9,10 +9,11 @@ import java.util.Scanner;
 
 public class Game implements PropertyChangeListener {
     public static Scanner sc = new Scanner(System.in);
+    private static Game currentGame;  // Current game instance
 
     public static void main(String[] args) {
-        Game game = new Game();
-        game.startGame();
+        currentGame = new Game();
+        currentGame.startGame();
     }
 
     private void startGame() {
@@ -34,10 +35,10 @@ public class Game implements PropertyChangeListener {
         System.out.println("Welcome to the Dungeon !");
         System.out.println("Are you ready to DIE ?");
 
-        dungeon.letEnter(hero);
+        dungeon.letEnter(hero); // Hero go to dungeon
     }
 
-    public void gameOver() {
+    public static void gameOver() { //Game over & try again
         System.out.println("Game Over");
         String answer = "";
         do {
@@ -46,8 +47,8 @@ public class Game implements PropertyChangeListener {
         } while (!(answer.equalsIgnoreCase("Y") || answer.equalsIgnoreCase("N")));
         switch (answer) {
             case "y":
-                startGame();
-                break;
+                currentGame = new Game();  // New game
+                currentGame.startGame();
             case "n":
                 System.exit(0);
             default:

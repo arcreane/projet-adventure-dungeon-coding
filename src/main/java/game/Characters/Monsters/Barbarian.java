@@ -54,11 +54,6 @@ public class Barbarian extends Monster {
     public boolean isParalyzed() {
         return isParalyzed;
     }
-
-    @Override
-    protected void applyEffect() {
-        // Aucun effet spécifique pour l'instant
-    }
 }
 
 

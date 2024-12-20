@@ -3,7 +3,6 @@ package game.Characters;
 import game.Weapons.Weapon;
 import lombok.Getter;
 
-
 public abstract class Character {
     @Getter
     protected int healthPoints;
@@ -30,13 +29,7 @@ public abstract class Character {
             alive = false;
         }
 }
-//
-//    protected void displayHealthStatus(Character target){
-//        //System.out.println("remaining life points :" + getHealthPoints());
-//        target.takeDamage(currentWeapon.getWeaponDamage());
-//        System.out.println(target.getClass().getSimpleName() + " a " + target.getHealthPoints() + " points de vie restants.");
-//        target.displayHealthStatus(target);
-//    }
+
     public void setParalyzed(boolean b) {
         return ;
     }

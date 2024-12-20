@@ -19,8 +19,6 @@ public abstract class Monster extends Character {
 		return chance == 1; // Critique si le nombre est 1
 	}
 
-	protected abstract void applyEffect();
-
 	protected String getHealth() {
         return "";
     }
