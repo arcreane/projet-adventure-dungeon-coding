@@ -20,7 +20,7 @@ public class Hero extends Character {
     private HashMap<WeaponType, Weapon> arsenal;
     private String m_sName;
     private Boolean isAlive;
-    private static final double CRITICAL_HIT_CHANCE = 100; // 0.10% chance
+    private static final double CRITICAL_HIT_CHANCE = 0.10; // 0.10% chance
     private final Random random = new Random();
     private boolean isParalyzed = false;
     private PropertyChangeSupport m_PCS = new PropertyChangeSupport(this);
@@ -56,7 +56,6 @@ public class Hero extends Character {
             System.out.println("The target is not a monster!");
             return;
         }
-
         Monster monster = (Monster) target;
         String weaponName = currentWeapon.getClass().getSimpleName();
         System.out.println("Type " + weaponName + " to hit the monster");
