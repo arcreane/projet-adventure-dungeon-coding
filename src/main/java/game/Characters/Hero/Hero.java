@@ -1,6 +1,7 @@
 package game.Characters.Hero;
 
 import game.Characters.Character;
+import game.Characters.Monsters.Barbarian;
 import game.Characters.Monsters.Monster;
 import game.Game;
 import game.Weapons.Sword;
@@ -10,7 +11,8 @@ import game.Weapons.WeaponType;
 import lombok.experimental.FieldNameConstants;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Random;
 
 @FieldNameConstants()
 public class Hero extends Character {
@@ -18,14 +20,17 @@ public class Hero extends Character {
     private HashMap<WeaponType, Weapon> arsenal;
     private String m_sName;
     private Boolean isAlive;
+    private static final double CRITICAL_HIT_CHANCE = 100; // 0.10% chance
+    private final Random random = new Random();
+    private boolean isParalyzed = false;
     private PropertyChangeSupport m_PCS = new PropertyChangeSupport(this);
 
     public Hero(String p_sName) {
-        this(1000, p_sName);
+        this(100, p_sName);
     }
 
-    public Hero(int initialhealthPoints, String p_sName) {
-        super(initialhealthPoints);
+    public Hero(int initialHealthPoints, String p_sName) {
+        super(initialHealthPoints);
         m_sName = p_sName;
         arsenal = new HashMap<WeaponType, Weapon>() {
             {
@@ -41,13 +46,28 @@ public class Hero extends Character {
 
     @Override
     public void attack(Character target) {
+        if (isParalyzed) {
+            System.out.println(m_sName + " is paralyzed and cannot attack this turn!");
+            isParalyzed = false; // Paralysis wears off after one turn
+            return;
+        }
+
+        if (!(target instanceof Monster)) {
+            System.out.println("The target is not a monster!");
+            return;
+        }
+
         Monster monster = (Monster) target;
         String weaponName = currentWeapon.getClass().getSimpleName();
         System.out.println("Type " + weaponName + " to hit the monster");
         String weapon = Game.sc.nextLine();
         if (weapon.equalsIgnoreCase(weaponName)) {
             int damage = currentWeapon.getWeaponDamage();
-            monster.takeDamage(damage); // Inflige les dégâts au monstre
+            // Check if the target is a Barbarian and if the critical hit chance applies
+            if (monster instanceof Barbarian && random.nextDouble() < CRITICAL_HIT_CHANCE) {
+                ((Barbarian) monster).setParalyzed(true); // Apply paralysis to the Barbarian
+            }
+            monster.takeDamage(damage);
             System.out.println("You hit the monster with " + weaponName + " for " + damage + " damage!");
             if (!monster.isAlive()) {
                 System.out.println("The monster has been defeated!");
@@ -69,4 +89,12 @@ public class Hero extends Character {
             m_PCS.firePropertyChange(test, true, false);
         }
     }
+
+    public void setParalyzed(boolean paralyzed) {
+        isParalyzed = paralyzed;
+        if (paralyzed) {
+            System.out.println(m_sName + " is paralyzed and cannot attack next turn!");
+        }
+    }
 }
+

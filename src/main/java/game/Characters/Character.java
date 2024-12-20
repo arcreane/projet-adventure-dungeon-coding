@@ -8,7 +8,6 @@ public abstract class Character {
     @Getter
     protected int healthPoints;
     protected Weapon currentWeapon;
-    //protected int currentHealth;
     protected String name;
     @Getter
     protected boolean alive = true;
@@ -39,6 +38,7 @@ public abstract class Character {
 //        target.displayHealthStatus(target);
 //    }
     public void setParalyzed(boolean b) {
+        return ;
     }
 
 }

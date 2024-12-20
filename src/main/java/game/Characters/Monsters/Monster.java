@@ -19,16 +19,6 @@ public abstract class Monster extends Character {
 		return chance == 1; // Critique si le nombre est 1
 	}
 
-	@Override
-	public void attack(Character target) {
-		if (isCriticalHit()) {
-			System.out.println("Critical hit!");
-			applyEffect();
-		} else {
-			super.attack(target);
-		}
-	}
-
 	protected abstract void applyEffect();
 
 	protected String getHealth() {
